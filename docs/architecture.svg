@@ -1,0 +1,150 @@
+<svg width="800" height="520" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">
+
+  <defs>
+    <marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#3fb950" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#8957e5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#3fb950" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#1f6feb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" fill="#0d1117" rx="12"/>
+
+  <!-- GCP Project boundary -->
+  <rect x="20" y="20" width="760" height="480" rx="10" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="40" y="44" font-size="11" fill="#8b949e" font-weight="600" letter-spacing="1">GCP PROJECT</text>
+
+  <!-- VPC boundary -->
+  <rect x="40" y="56" width="720" height="290" rx="8" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <text x="60" y="76" font-size="10" fill="#6e7681" font-weight="600" letter-spacing="0.5">CUSTOM VPC — auto_create_subnetworks: false</text>
+
+  <!-- Region 1: us-central1 -->
+  <rect x="60" y="86" width="310" height="244" rx="6" fill="#0d1117" stroke="#1f6feb" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="76" y="104" font-size="9" fill="#388bfd" font-weight="600" letter-spacing="0.5">REGION: us-central1</text>
+
+  <!-- Subnet us -->
+  <rect x="76" y="112" width="278" height="44" rx="4" fill="#161b22" stroke="#1f6feb" stroke-width="0.8"/>
+  <text x="92" y="130" font-size="9" fill="#58a6ff" font-weight="600">subnet-us</text>
+  <text x="92" y="146" font-size="9" fill="#6e7681">10.10.0.0/24  —  private_ip_google_access: true</text>
+
+  <!-- Zone us-central1-a -->
+  <rect x="76" y="164" width="278" height="62" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="0.8"/>
+  <text x="92" y="179" font-size="8" fill="#6e7681" letter-spacing="0.3">ZONE: us-central1-a</text>
+
+  <!-- VM us -->
+  <rect x="92" y="186" width="246" height="32" rx="4" fill="#21262d" stroke="#388bfd" stroke-width="0.8"/>
+  <rect x="96" y="192" width="10" height="10" rx="2" fill="#1f6feb" opacity="0.8"/>
+  <text x="112" y="201" font-size="9" fill="#79c0ff" font-weight="600">dev-app-01</text>
+  <text x="112" y="213" font-size="8" fill="#6e7681">e2-medium  |  no public IP  |  Shielded VM  |  tag: iap-ssh</text>
+
+  <!-- Cloud Router + NAT us -->
+  <rect x="76" y="236" width="130" height="34" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="0.8"/>
+  <text x="141" y="251" font-size="9" fill="#56d364" font-weight="600" text-anchor="middle">Cloud NAT</text>
+  <text x="141" y="263" font-size="8" fill="#6e7681" text-anchor="middle">AUTO_ONLY</text>
+
+  <rect x="218" y="236" width="136" height="34" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="0.8"/>
+  <text x="286" y="251" font-size="9" fill="#56d364" font-weight="600" text-anchor="middle">Cloud Router</text>
+  <text x="286" y="263" font-size="8" fill="#6e7681" text-anchor="middle">vpc-demo-router</text>
+  <line x1="218" y1="253" x2="206" y2="253" stroke="#3fb950" stroke-width="0.8" marker-end="url(#arr)"/>
+
+  <!-- Region 2: southamerica-west1 -->
+  <rect x="390" y="86" width="350" height="244" rx="6" fill="#0d1117" stroke="#da3633" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="406" y="104" font-size="9" fill="#f85149" font-weight="600" letter-spacing="0.5">REGION: southamerica-west1  (Santiago)</text>
+
+  <!-- Subnet sa -->
+  <rect x="406" y="112" width="318" height="44" rx="4" fill="#161b22" stroke="#da3633" stroke-width="0.8"/>
+  <text x="422" y="130" font-size="9" fill="#ff7b72" font-weight="600">subnet-sa</text>
+  <text x="422" y="146" font-size="9" fill="#6e7681">10.20.0.0/24  —  private_ip_google_access: true</text>
+
+  <!-- Zone sa -->
+  <rect x="406" y="164" width="318" height="62" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="0.8"/>
+  <text x="422" y="179" font-size="8" fill="#6e7681" letter-spacing="0.3">ZONE: southamerica-west1-a</text>
+
+  <!-- VM sa -->
+  <rect x="422" y="186" width="286" height="32" rx="4" fill="#21262d" stroke="#f85149" stroke-width="0.8"/>
+  <rect x="426" y="192" width="10" height="10" rx="2" fill="#da3633" opacity="0.8"/>
+  <text x="442" y="201" font-size="9" fill="#ffa198" font-weight="600">dev-app-sa-01</text>
+  <text x="442" y="213" font-size="8" fill="#6e7681">e2-small  |  no public IP  |  Shielded VM  |  tag: iap-ssh</text>
+
+  <!-- Cloud Router + NAT sa -->
+  <rect x="406" y="236" width="130" height="34" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="0.8"/>
+  <text x="471" y="251" font-size="9" fill="#56d364" font-weight="600" text-anchor="middle">Cloud NAT</text>
+  <text x="471" y="263" font-size="8" fill="#6e7681" text-anchor="middle">AUTO_ONLY</text>
+
+  <rect x="548" y="236" width="176" height="34" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="0.8"/>
+  <text x="636" y="251" font-size="9" fill="#56d364" font-weight="600" text-anchor="middle">Cloud Router</text>
+  <text x="636" y="263" font-size="8" fill="#6e7681" text-anchor="middle">vpc-demo-router-sa</text>
+  <line x1="548" y1="253" x2="536" y2="253" stroke="#3fb950" stroke-width="0.8" marker-end="url(#arr)"/>
+
+  <!-- Firewall rules section -->
+  <rect x="40" y="360" width="720" height="112" rx="8" fill="#161b22" stroke="#e3b341" stroke-width="1"/>
+  <text x="60" y="380" font-size="9" fill="#d29922" font-weight="600" letter-spacing="0.5">FIREWALL RULES  —  module: firewall  —  VPC-wide scope</text>
+
+  <rect x="60" y="390" width="158" height="70" rx="4" fill="#0d1117" stroke="#e3b341" stroke-width="0.6"/>
+  <text x="139" y="405" font-size="8" fill="#e3b341" font-weight="600" text-anchor="middle">allow-iap-ssh</text>
+  <text x="139" y="418" font-size="7.5" fill="#6e7681" text-anchor="middle">tcp:22</text>
+  <text x="139" y="430" font-size="7.5" fill="#6e7681" text-anchor="middle">src: 35.235.240.0/20</text>
+  <text x="139" y="442" font-size="7.5" fill="#8957e5" text-anchor="middle">Google IAP only</text>
+  <text x="139" y="454" font-size="7.5" fill="#3fb950" text-anchor="middle">tag: iap-ssh</text>
+
+  <rect x="230" y="390" width="158" height="70" rx="4" fill="#0d1117" stroke="#e3b341" stroke-width="0.6"/>
+  <text x="309" y="405" font-size="8" fill="#e3b341" font-weight="600" text-anchor="middle">allow-internal</text>
+  <text x="309" y="418" font-size="7.5" fill="#6e7681" text-anchor="middle">tcp / udp / icmp</text>
+  <text x="309" y="430" font-size="7.5" fill="#6e7681" text-anchor="middle">src: 10.0.0.0/8</text>
+  <text x="309" y="442" font-size="7.5" fill="#6e7681" text-anchor="middle">within VPC only</text>
+  <text x="309" y="454" font-size="7.5" fill="#6e7681" text-anchor="middle">east-west traffic</text>
+
+  <rect x="400" y="390" width="178" height="70" rx="4" fill="#0d1117" stroke="#e3b341" stroke-width="0.6"/>
+  <text x="489" y="405" font-size="8" fill="#e3b341" font-weight="600" text-anchor="middle">allow-health-checks</text>
+  <text x="489" y="418" font-size="7.5" fill="#6e7681" text-anchor="middle">tcp — LB probes</text>
+  <text x="489" y="430" font-size="7.5" fill="#6e7681" text-anchor="middle">130.211.0.0/22</text>
+  <text x="489" y="442" font-size="7.5" fill="#6e7681" text-anchor="middle">35.191.0.0/16</text>
+  <text x="489" y="454" font-size="7.5" fill="#3fb950" text-anchor="middle">tag: allow-health-checks</text>
+
+  <rect x="590" y="390" width="152" height="70" rx="4" fill="#0d1117" stroke="#f85149" stroke-width="0.8"/>
+  <text x="666" y="405" font-size="8" fill="#f85149" font-weight="600" text-anchor="middle">deny-all-ingress</text>
+  <text x="666" y="418" font-size="7.5" fill="#6e7681" text-anchor="middle">protocol: all</text>
+  <text x="666" y="430" font-size="7.5" fill="#6e7681" text-anchor="middle">0.0.0.0/0</text>
+  <text x="666" y="442" font-size="7.5" fill="#6e7681" text-anchor="middle">priority: 65534</text>
+  <text x="666" y="454" font-size="7.5" fill="#f85149" text-anchor="middle">defense in depth</text>
+
+  <!-- External elements -->
+  <!-- IAP -->
+  <rect x="40" y="296" width="120" height="46" rx="8" fill="#1a1326" stroke="#8957e5" stroke-width="1"/>
+  <text x="100" y="315" font-size="9" fill="#bc8cff" font-weight="600" text-anchor="middle">Google IAP</text>
+  <text x="100" y="328" font-size="8" fill="#6e7681" text-anchor="middle">35.235.240.0/20</text>
+  <text x="100" y="338" font-size="7.5" fill="#6e7681" text-anchor="middle">SSH tunnel</text>
+
+  <!-- Internet -->
+  <rect x="320" y="296" width="120" height="46" rx="24" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="380" y="315" font-size="9" fill="#8b949e" text-anchor="middle">Internet</text>
+  <text x="380" y="328" font-size="8" fill="#3fb950" text-anchor="middle">outbound only</text>
+  <text x="380" y="338" font-size="7.5" fill="#6e7681" text-anchor="middle">via Cloud NAT</text>
+
+  <!-- Google APIs -->
+  <rect x="608" y="296" width="132" height="46" rx="8" fill="#0d1423" stroke="#1f6feb" stroke-width="1"/>
+  <text x="674" y="315" font-size="9" fill="#58a6ff" font-weight="600" text-anchor="middle">Google APIs</text>
+  <text x="674" y="328" font-size="8" fill="#6e7681" text-anchor="middle">private.googleapis.com</text>
+  <text x="674" y="338" font-size="7.5" fill="#6e7681" text-anchor="middle">no internet needed</text>
+
+  <!-- Arrows IAP to VMs -->
+  <line x1="160" y1="319" x2="200" y2="305" stroke="#8957e5" stroke-width="0.9" stroke-dasharray="3 2" marker-end="url(#arr-purple)"/>
+  <line x1="160" y1="325" x2="432" y2="317" stroke="#8957e5" stroke-width="0.9" stroke-dasharray="3 2" marker-end="url(#arr-purple)"/>
+
+  <!-- Arrows NAT to Internet -->
+  <line x1="141" y1="270" x2="340" y2="300" stroke="#3fb950" stroke-width="0.8" stroke-dasharray="3 2" marker-end="url(#arr-green)"/>
+  <line x1="471" y1="270" x2="420" y2="300" stroke="#3fb950" stroke-width="0.8" stroke-dasharray="3 2" marker-end="url(#arr-green)"/>
+
+  <!-- Arrows VMs to Google APIs (private access) -->
+  <line x1="338" y1="202" x2="607" y2="305" stroke="#1f6feb" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.5" marker-end="url(#arr-blue)"/>
+  <line x1="708" y1="202" x2="706" y2="294" stroke="#1f6feb" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.5" marker-end="url(#arr-blue)"/>
+
+</svg>

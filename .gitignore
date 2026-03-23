@@ -1,0 +1,24 @@
+# Terraform state — never commit
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform variables with real values — never commit
+terraform.tfvars
+*.auto.tfvars
+
+# Terraform working directories
+**/.terraform/
+**/.terraform.lock.hcl
+
+# Crash logs
+crash.log
+crash.*.log
+
+# GCP credentials — never commit
+*.json
+service-account*.json
+gcloud-credentials*
+
+# OS
+.DS_Store
