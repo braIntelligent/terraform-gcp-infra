@@ -37,7 +37,7 @@ module "vpc" {
     {
       name   = "${var.environment}-subnet-sa"
       cidr   = "10.20.0.0/24"
-      region = "southamerica-west1" 
+      region = "southamerica-west1"
     }
   ]
 }
