@@ -6,10 +6,10 @@ variable "project_id" {
 variable "instances" {
   description = "Map of instances to create"
   type = map(object({
-    zone         = string
-    subnet_id    = string
-    machine_type = string
-    tags         = list(string)
+    zone           = string
+    subnet_id      = string
+    machine_type   = string
+    tags           = list(string)
     startup_script = optional(string, "")
   }))
 }
