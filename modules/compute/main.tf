@@ -1,3 +1,19 @@
+# Identidad propia de las VM, en vez de la cuenta por defecto de Compute Engine,
+# que suele traer el rol Editor sobre el proyecto.
+resource "google_service_account" "vm" {
+  account_id   = "${var.environment}-vm"
+  display_name = "VMs ${var.environment}"
+  project      = var.project_id
+}
+
+resource "google_project_iam_member" "vm" {
+  for_each = toset(["roles/logging.logWriter", "roles/monitoring.metricWriter"])
+
+  project = var.project_id
+  role    = each.value
+  member  = "serviceAccount:${google_service_account.vm.email}"
+}
+
 resource "google_compute_instance" "instances" {
   for_each = var.instances
 
@@ -13,6 +29,9 @@ resource "google_compute_instance" "instances" {
     managed_by  = "terraform"
   }
 
+  # Excepción aceptada: laboratorio sin datos sensibles; una clave KMS agrega
+  # costo y operación que acá no se justifican. Producción sí la usaría.
+  #tfsec:ignore:google-compute-vm-disk-encryption-customer-key
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-12"
@@ -30,10 +49,14 @@ resource "google_compute_instance" "instances" {
     startup-script = each.value.startup_script
     # Disable legacy metadata endpoints for security
     disable-legacy-endpoints = "true"
+    # Solo claves de esta instancia: una clave del proyecto no abre todas las VM
+    block-project-ssh-keys = true
   }
 
-  # Use default compute service account with minimal scopes
+  # El scope es amplio a propósito (recomendación de Google): lo que la VM puede
+  # hacer lo limitan los roles IAM de la cuenta, no el scope.
   service_account {
+    email  = google_service_account.vm.email
     scopes = ["cloud-platform"]
   }
 
