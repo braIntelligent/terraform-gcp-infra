@@ -47,6 +47,11 @@ terraform apply
 - SSH open only from Google IAP range (35.235.240.0/20)
 - Cloud NAT handles outbound traffic without exposing instances
 - All resources tagged for cost allocation
+- VMs run with a dedicated service account limited to logging and metrics
+- Project-wide SSH keys are blocked; VPC flow logs are enabled
+- tfsec blocks plan and apply on any finding; accepted exceptions are justified inline
+- gitleaks scans the full git history for committed secrets
+- Third-party actions are pinned to a commit SHA and updated by Dependabot
 
 ## Author
 

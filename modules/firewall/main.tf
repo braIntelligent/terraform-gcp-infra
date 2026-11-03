@@ -12,6 +12,8 @@ resource "google_compute_firewall" "allow_iap_ssh" {
   }
 
   # Google IAP source range — official documented range
+  # Falso positivo de tfsec: es un rango público, pero de Google y no internet abierto.
+  #tfsec:ignore:google-compute-no-public-ingress
   source_ranges = ["35.235.240.0/20"]
 
   target_tags = ["iap-ssh"]
@@ -55,6 +57,8 @@ resource "google_compute_firewall" "allow_health_checks" {
   }
 
   # Official Google health check source ranges
+  # Falso positivo de tfsec: rangos de Google y limitados por target_tags.
+  #tfsec:ignore:google-compute-no-public-ingress
   source_ranges = [
     "130.211.0.0/22",
     "35.191.0.0/16"
